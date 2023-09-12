@@ -8,7 +8,7 @@ function TaskList({ taskList, changeStatus, deleteTask, editTask, maxItems = 5 }
 
   useEffect(() => {
     setTotalPages(Math.ceil(taskList.length / maxItems));
-  }, [taskList]);
+  }, [taskList, maxItems]);
 
   return (
     <div>

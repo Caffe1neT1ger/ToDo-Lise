@@ -13,8 +13,6 @@ function App() {
     completed: 'all',
     sort: 'desc',
   });
-  const [totalPage, setTotalPage] = useState(0);
-  const [page, setPage] = useState(1);
 
   const sortedTasks = useTasks(taskList, filter.sort, filter.completed);
 
