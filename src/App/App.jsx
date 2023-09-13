@@ -6,6 +6,7 @@ import AddForm from '../features/AddForm/AddForm';
 import TaskList from '../features/TaskList/TaskList';
 import { useTasks } from '../shared/hooks/useTasks';
 import TaskFilter from '../entities/TaskFilter/TaskFilter';
+import Container from '../shared/Container/Container';
 
 function App() {
   const [taskList, setTaskList] = useState(JSON.parse(localStorage.getItem('TASKLIST') || '[]'));
@@ -53,14 +54,16 @@ function App() {
 
   return (
     <div className={classNames(styles.App)}>
-      <AddForm addTask={addTask} />
-      <TaskFilter filter={filter} setFilter={setFilter} />
-      <TaskList
-        taskList={sortedTasks}
-        changeStatus={changeStatus}
-        deleteTask={deleteTask}
-        editTask={editTask}
-      />
+      <Container>
+        <AddForm addTask={addTask} />
+        <TaskFilter filter={filter} setFilter={setFilter} />
+        <TaskList
+          taskList={sortedTasks}
+          changeStatus={changeStatus}
+          deleteTask={deleteTask}
+          editTask={editTask}
+        />
+      </Container>
     </div>
   );
 }

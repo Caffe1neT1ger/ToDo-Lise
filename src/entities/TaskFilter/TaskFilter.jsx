@@ -1,9 +1,12 @@
 import React from 'react';
 import Select from '../../shared/Select/Select';
+import classNames from 'classnames';
+
+import styles from './TaskFilter.module.scss';
 
 const TaskFilter = ({ filter, setFilter }) => {
   return (
-    <div>
+    <div className={classNames(styles.TaskFilter)}>
       <Select
         value={filter.completed}
         onChange={selectedItem => setFilter({ ...filter, completed: selectedItem })}

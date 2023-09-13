@@ -1,0 +1,25 @@
+.Button {
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+  padding: 5px 10px;
+
+  border: none;
+  border-radius: 0 5px 5px 0;
+  line-height: 20px;
+  background-color: #707cb3;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.Button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.active {
+  background-color: #9265aa;
+  padding-left: 15px;
+}

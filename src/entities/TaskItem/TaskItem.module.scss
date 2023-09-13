@@ -1,0 +1,31 @@
+.TaskItem {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #333;
+  width: 100%;
+
+  align-items: center;
+}
+
+.contentBlock {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 20px;
+
+  text-align: left;
+  align-items: center;
+}
+
+.btnBlock {
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  min-width: fit-content;
+}
+
+.Numbering {
+  font-size: 20px;
+}

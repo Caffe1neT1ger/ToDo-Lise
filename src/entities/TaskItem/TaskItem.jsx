@@ -1,17 +1,42 @@
 import React, { useState } from 'react';
-import Button from '../../shared/Button/Button';
-import Input from '../../shared/Input/Input';
 
-function TaskItem({ itemIndex, id, value, isCompleted, changeStatus, deleteTask, editTask }) {
+import classNames from 'classnames';
+
+import Button, { Type } from '../../shared/Button/Button';
+import Input, { background } from '../../shared/Input/Input';
+
+import styles from './TaskItem.module.scss';
+
+const options = {
+  weekday: 'short',
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+};
+
+function TaskItem({
+  className,
+  itemIndex,
+  id,
+  value,
+  isCompleted,
+  changeStatus,
+  deleteTask,
+  editTask,
+}) {
   const [editing, setEditing] = useState(false);
   const [editValue, setEditValue] = useState(value);
+  const [completed, setCompleted] = useState(isCompleted);
+
   const completeTask = () => {
+    setCompleted(!completed);
     changeStatus(id);
   };
 
   const deleteTaskHandler = () => {
     deleteTask(id);
   };
+
   const editHandler = () => {
     if (editing) {
       value = editValue;
@@ -23,20 +48,29 @@ function TaskItem({ itemIndex, id, value, isCompleted, changeStatus, deleteTask,
     setEditValue(event.target.value);
   };
   return (
-    <div>
-      <div>
-        <h1>{itemIndex || 0}</h1>
+    <div className={classNames(styles.TaskItem, {}, className)}>
+      <div className={styles.contentBlock}>
+        <span className={styles.Numbering}>{itemIndex || 0}</span>
         {editing ? (
-          <Input value={editValue} onChangeHandler={onChangeHandler} />
+          <Input
+            value={editValue}
+            onChangeHandler={onChangeHandler}
+            backgroundColor={background.EDIT}
+          />
         ) : (
-          <p>{value || 'body'}</p>
+          <p>{completed ? <strike>{value}</strike> : value || 'body'}</p>
         )}
-        <p>{isCompleted ? '+' : '-'}</p>
       </div>
-      <div>
-        <Button actionHandler={completeTask}>Complete</Button>
-        <Button actionHandler={deleteTaskHandler}>Delete</Button>
-        <Button actionHandler={editHandler}>{editing ? 'Save Changes' : 'Edit'}</Button>
+
+      <div className={styles.btnBlock}>
+        <div className={styles.date}>{new Date(id).toLocaleString('ru-RU', options)}</div>
+        <Button
+          disabled={editing}
+          type={completed ? Type.DONE : Type.UNDONE}
+          actionHandler={completeTask}
+        ></Button>
+        <Button type={Type.EDIT} actionHandler={editHandler}></Button>
+        <Button disabled={editing} type={Type.DELETE} actionHandler={deleteTaskHandler}></Button>
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Button from '../../shared/Button/Button';
 import Input from '../../shared/Input/Input';
+import classNames from 'classnames';
+
+import styles from './AddForm.module.scss';
 
 function AddForm({ addTask }) {
   const [value, setValue] = useState('');
@@ -21,8 +24,8 @@ function AddForm({ addTask }) {
   };
 
   return (
-    <div>
-      <Input onChangeHandler={inputHandler} value={value} />
+    <div className={classNames(styles.AddForm)}>
+      <Input onChangeHandler={inputHandler} value={value} placeholder="New Task..." />
       <Button actionHandler={buttonHandler}>Add Task</Button>
     </div>
   );

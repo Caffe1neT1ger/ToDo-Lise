@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import Button from '../Button/Button';
+import classNames from 'classnames';
+import styles from './Pagination.module.scss';
 
 function Pagination({ currentPage, totalPages, setPages }) {
   const pageHandler = item => {
@@ -13,10 +15,15 @@ function Pagination({ currentPage, totalPages, setPages }) {
     return arr;
   }, [totalPages]);
   return (
-    <div>
+    <div className={classNames(styles.Pagination)}>
       {pagesArray.map((item, index) => {
         return (
-          <Button key={index} id={item} actionHandler={event => pageHandler(item)}>
+          <Button
+            key={index}
+            id={item}
+            actionHandler={event => pageHandler(item)}
+            active={index + 1 == currentPage}
+          >
             {item}
           </Button>
         );
