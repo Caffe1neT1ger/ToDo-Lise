@@ -54,6 +54,7 @@ function App() {
 
   return (
     <div className={classNames(styles.App)}>
+      <h1 className={styles.Title}>ToDo List by Croak_Croak</h1>
       <Container>
         <AddForm addTask={addTask} />
         <TaskFilter filter={filter} setFilter={setFilter} />
