@@ -29,6 +29,7 @@ function TaskItem({
   const [completed, setCompleted] = useState(isCompleted);
 
   const completeTask = () => {
+    // setCompleted(!completed) => setCompleted(prev => !prev)
     setCompleted(!completed);
     changeStatus(id);
   };
@@ -47,6 +48,8 @@ function TaskItem({
   const onChangeHandler = event => {
     setEditValue(event.target.value);
   };
+
+  // classNames не нужен
   return (
     <div className={classNames(styles.TaskItem, {}, className)}>
       <div className={styles.contentBlock}>
@@ -75,5 +78,8 @@ function TaskItem({
     </div>
   );
 }
+
+//<Button type={Type.EDIT} actionHandler={editHandler}></Button>
+// Почему пустой тег? Если так реально надо то используй самозакрывающийся тег
 
 export default TaskItem;

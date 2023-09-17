@@ -1,3 +1,4 @@
+// Тут не нужен импорт реакта
 import React from 'react';
 
 import classNames from 'classnames';
@@ -25,6 +26,11 @@ function Button({
   disabled = false,
   active = false,
 }) {
+
+  // style={{ background: `${type != Type.NONE ? 'transparent' : ''}` }}
+  // Во первых сравнение должно быть строгим
+  // Во вторых используй &&
+  // В третьих сделай более чистое условие условие && "transparent"
   return (
     <button
       className={classNames(styles.Button, {}, [className, active ? styles.active : ''])}

@@ -3,10 +3,13 @@ import Button from '../Button/Button';
 import classNames from 'classnames';
 import styles from './Pagination.module.scss';
 
+// Тут тоже
 function Pagination({ currentPage, totalPages, setPages }) {
   const pageHandler = item => {
     setPages(item);
   };
+
+  // shared слой не должен иметь внутри себя бизнес логику
   const pagesArray = useMemo(() => {
     const arr = [];
     for (let i = 0; i < totalPages; i++) {

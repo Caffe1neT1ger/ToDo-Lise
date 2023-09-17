@@ -1,3 +1,4 @@
+// импорт React не нужен
 import React, { useEffect, useState } from 'react';
 import TaskItem from '../../entities/TaskItem/TaskItem';
 import Pagination from '../../shared/Pagination/Pagination';
@@ -14,6 +15,8 @@ function TaskList({ taskList, changeStatus, deleteTask, editTask, maxItems = 5 }
     setTotalPages(Math.ceil(taskList.length / maxItems));
   }, [taskList, maxItems]);
 
+
+  // classNames не нужен
   return (
     <div className={classNames(styles.TaskList)}>
       <div className={styles.TaskListContent}>

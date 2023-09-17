@@ -1,7 +1,8 @@
+// Убери импорт реакта, и сделай абсолютные импорты, ссылка в App
 import React from 'react';
 import Select from '../../shared/Select/Select';
 import classNames from 'classnames';
-
+// Good
 import styles from './TaskFilter.module.scss';
 
 const TaskFilter = ({ filter, setFilter }) => {
@@ -11,6 +12,7 @@ const TaskFilter = ({ filter, setFilter }) => {
         value={filter.completed}
         onChange={selectedItem => setFilter({ ...filter, completed: selectedItem })}
         defaultOption="All"
+        {/* Move this array to shared layer*/}
         options={[
           {
             name: 'All',

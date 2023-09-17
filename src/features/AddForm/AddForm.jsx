@@ -1,3 +1,4 @@
+// Импорт react'a не нужен
 import React, { useState } from 'react';
 import Button from '../../shared/Button/Button';
 import Input from '../../shared/Input/Input';
@@ -5,6 +6,7 @@ import classNames from 'classnames';
 
 import styles from './AddForm.module.scss';
 
+// function -> const addForm = ({addTask}) =>
 function AddForm({ addTask }) {
   const [value, setValue] = useState('');
 
@@ -20,6 +22,7 @@ function AddForm({ addTask }) {
         isCompleted: false,
       });
       setValue('');
+      // Добавь скобки для else + не стоит использовать alert
     } else alert('Empty value');
   };
 
