@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import styles from './App.module.scss';
 import AddForm from '../features/AddForm/AddForm';
-import TaskList from '../features/TaskList/TaskList';
+import TaskList from '../widgets/TaskList/TaskList';
 import { useTasks } from '../shared/hooks/useTasks';
 import TaskFilter from '../entities/TaskFilter/TaskFilter';
 import Container from '../shared/Container/Container';
