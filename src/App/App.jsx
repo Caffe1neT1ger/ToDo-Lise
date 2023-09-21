@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import TaskList from 'widgets/TaskList/TaskList';
 import AddForm from 'features/AddForm/AddForm';
-import TaskFilter from 'entities/TaskFilter/TaskFilter';
+import TaskFilter from 'features/TaskFilter/TaskFilter';
 import Container from 'shared/UI/Container/Container';
 
 import { useTasks } from 'shared/hooks/useTasks';

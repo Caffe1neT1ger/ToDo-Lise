@@ -5,13 +5,17 @@ import Pagination from 'shared/UI/Pagination/Pagination';
 
 import styles from './TaskList.module.scss';
 
+const getPageCount = (list, limit) => {
+  return Math.ceil(list.length / limit);
+};
+
 const TaskList = ({ taskList, changeStatus, deleteTask, editTask, maxItems = 5 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(Math.ceil(taskList.length / maxItems));
+  const [totalPages, setTotalPages] = useState(getPageCount(taskList, maxItems));
 
   useEffect(() => {
-    setTotalPages(Math.ceil(taskList.length / maxItems));
-    setCurrentPage(prev => (prev <= totalPages ? prev : totalPages));
+    setCurrentPage(prev => (prev <= totalPages && prev != 0 ? prev : totalPages));
+    setTotalPages(getPageCount(taskList, maxItems));
   }, [taskList, maxItems, totalPages]);
 
   const pagesArray = useMemo(() => {
