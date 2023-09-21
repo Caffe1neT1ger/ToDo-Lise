@@ -14,7 +14,7 @@ const TaskList = ({ taskList, changeStatus, deleteTask, editTask, maxItems = 5 }
   const [totalPages, setTotalPages] = useState(getPageCount(taskList, maxItems));
 
   useEffect(() => {
-    setCurrentPage(prev => (prev <= totalPages && prev != 0 ? prev : totalPages));
+    setCurrentPage(prev => (prev <= totalPages && prev !== 0 ? prev : totalPages));
     setTotalPages(getPageCount(taskList, maxItems));
   }, [taskList, maxItems, totalPages]);
 
