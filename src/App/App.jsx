@@ -19,7 +19,7 @@ const App = () => {
   const [taskList, setTaskList] = useState(getDataFromLocalStorage(TASKLIST));
   const [filter, setFilter] = useState({
     completed: 'all',
-    sort: 'desc',
+    sort: 'asc',
   });
   const sortedTasks = useTasks(taskList, filter.sort, filter.completed);
 
