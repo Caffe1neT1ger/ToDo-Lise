@@ -3,10 +3,10 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-import checkIcon from 'shared/assets/Icons/check_ring_round.svg';
-import editIcon from 'shared/assets/Icons/Edit.svg';
-import deleteIcon from 'shared/assets/Icons/Trash.svg';
-import closeIcon from 'shared/assets/Icons/close_ring.svg';
+import checkIcon from 'shared/assets/icons/check_ring_round.svg';
+import editIcon from 'shared/assets/icons/Edit.svg';
+import deleteIcon from 'shared/assets/icons/Trash.svg';
+import closeIcon from 'shared/assets/icons/close_ring.svg';
 
 import styles from './Button.module.scss';
 
