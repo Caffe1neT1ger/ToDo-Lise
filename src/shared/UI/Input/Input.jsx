@@ -1,5 +1,3 @@
-import React from 'react';
-
 import classNames from 'classnames';
 
 import styles from './Input.module.scss';
@@ -9,14 +7,14 @@ export const background = {
   EDIT: 'none',
 };
 
-function Input({
+const Input = ({
   className,
   value,
   placeholder,
   onChangeHandler,
   readOnly,
   backgroundColor = background.PRIMARY,
-}) {
+}) => {
   return (
     <input
       className={classNames(styles.Input, {}, [className])}
@@ -27,6 +25,6 @@ function Input({
       style={{ backgroundColor }}
     />
   );
-}
+};
 
 export default Input;

@@ -1,13 +1,13 @@
-// Импорт react'a не нужен
-import React, { useState } from 'react';
-import Button from '../../shared/Button/Button';
-import Input from '../../shared/Input/Input';
+import { useState } from 'react';
+
 import classNames from 'classnames';
+
+import Button from 'shared/UI/Button/Button';
+import Input from 'shared/UI/Input/Input';
 
 import styles from './AddForm.module.scss';
 
-// function -> const addForm = ({addTask}) =>
-function AddForm({ addTask }) {
+const AddForm = ({ addTask }) => {
   const [value, setValue] = useState('');
 
   const inputHandler = event => {
@@ -22,8 +22,9 @@ function AddForm({ addTask }) {
         isCompleted: false,
       });
       setValue('');
-      // Добавь скобки для else + не стоит использовать alert
-    } else alert('Empty value');
+    } else {
+      alert('Empty value');
+    }
   };
 
   return (
@@ -32,6 +33,6 @@ function AddForm({ addTask }) {
       <Button actionHandler={buttonHandler}>Add Task</Button>
     </div>
   );
-}
+};
 
 export default AddForm;
